@@ -1,0 +1,23 @@
+import numpy as np
+    def readMatrix(filename)
+        fid = open("MATRIX.TRAIN")
+        headerline = fid.readline().rstrip()
+        with open("MATRIX.TRAIN") as f:
+        for line in f:
+            rowscols = line.split()
+
+        tokenlist = fid.readline().rstrip()
+        matrix = np.zeros(rowscols[2], rowscols[1], dtype = int)
+        
+        category = np.array(rowscols[1])
+        for m in range(1,rowscols[1]):
+        	line = fid.readline().rstrip()
+        	nums = int(line.readline().rstrip())
+        	nums = str(line.readline().rstrip())
+        	[row,col] = len(nums)
+        	category[m] = nums[1]
+        	matrix[1 + np.cumsum(nums[2:row - 1:2]), m] = nums[3:row - 1:2]
+
+        matrix = np.matrix.transpose()
+        fid.close()   
+     
